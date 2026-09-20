@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cảm ơn vì đã đến!</title>
-  <!-- Nhúng bộ font Comfortaa & Be Vietnam Pro (Chuẩn 100% tiếng Việt không lỗi dấu) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Be+Vietnam+Pro:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -15,14 +11,14 @@
       padding: 0;
     }
 
-  body {
-    background: linear-gradient(180deg, #ffc5d3 0%, #ff8fa3 100%);
-    min-height: 100vh;
-    font-family: 'Cambria', serif;
-    overflow-x: hidden;
-}
+    body {
+      background: linear-gradient(180deg, #ffc5d3 0%, #ff8fa3 100%);
+      min-height: 100vh;
+      font-family: 'Cambria', serif;
+      overflow-x: hidden;
+    }
 
-/* =========================================
+    /* =========================================
        1. MÀN HÌNH CHÀO MỪNG (TRANG ĐẦU TIÊN)
     ========================================= */
     #welcomeScreen {
@@ -46,7 +42,6 @@
       pointer-events: none;
     }
 
-    /* Container giới hạn khung hình theo tỷ lệ dọc của điện thoại */
     .welcome-container {
       width: 100%;
       max-width: 400px;
@@ -64,7 +59,6 @@
       text-shadow: 0 4px 15px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(184, 20, 70, 0.3);
       margin-bottom: 30px;
       line-height: 1.4;
-      /* Animation hiện từ dưới lên phù hợp với màn hình dọc */
       opacity: 0;
       animation: fadeUpBanner 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
     }
@@ -75,7 +69,7 @@
     }
 
     .bouquet-wrapper {
-      width: 220px; /* Thu nhỏ một chút cho cân đối theo chiều dọc */
+      width: 220px;
       max-width: 65vw;
       margin-bottom: 40px;
       filter: drop-shadow(0 12px 20px rgba(232, 74, 115, 0.35));
@@ -98,6 +92,33 @@
       color: #9c1039;
       margin-bottom: 30px;
       text-shadow: 0 1px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Nút Sẵn sàng - Kiểu Pha lê */
+    .btn-ready {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: #b81446; 
+      font-family: 'Cambria', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      padding: 12px 42px;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(255, 105, 135, 0.4), inset 0 0 12px rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+      animation: floatBtn 2.5s infinite ease-in-out;
+    }
+
+    .btn-ready:active {
+      transform: scale(0.93);
+    }
+
+    @keyframes floatBtn {
+      0%, 100% { transform: translateY(0); box-shadow: 0 8px 32px rgba(255, 105, 135, 0.4), inset 0 0 12px rgba(255, 255, 255, 0.6); }
+      50% { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(255, 105, 135, 0.6), inset 0 0 18px rgba(255, 255, 255, 0.8); }
     }
 
     /* =========================================
@@ -137,7 +158,6 @@
     }
 
     .header-title {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 1.45rem;
       font-weight: 700;
       color: #b83b5e;
@@ -320,7 +340,6 @@
       overflow: visible;
     }
 
-    /* Chiếc nơ to góc phải */
     .ribbon-bow {
       position: absolute;
       top: -12px;
@@ -372,7 +391,6 @@
     .letter-title {
       position: relative;
       z-index: 1;
-      font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
       font-weight: 700;
       color: #9c3d62;
@@ -387,8 +405,7 @@
       z-index: 1;
       line-height: 2.1;
       text-align: justify;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; 
+      font-size: 1.15rem; 
       letter-spacing: 0.2px;
     }
 
@@ -430,18 +447,19 @@
 <body>
 
   <!-- =========================================
-       1. MÀN HÌNH CHÀO MỪNG BAN ĐẦU
+       1. MÀN HÌNH CHÀO MỪNG BAN ĐẦU (TỶ LỆ DỌC)
   ========================================= -->
   <div id="welcomeScreen">
-    <div class="birthday-banner">✨ Cảm ơn vì đã đến ✨</div>
-    
-    <div class="bouquet-wrapper">
-      <!-- Bó hoa trái tim thắt nơ hồng sắc nét -->
-      <img src="https://images.vexels.com/media/users/3/260786/isolated/preview/fa0fe7215c2ec0fef0cf43ffae5fa21e-heart-balloons-flower-bouquet.png" alt="Heart Bouquet">
-    </div>
+    <div class="welcome-container">
+      <div class="birthday-banner">✨ Cảm ơn vì đã đến ✨</div>
+      
+      <div class="bouquet-wrapper">
+        <img src="https://images.vexels.com/media/users/3/260786/isolated/preview/fa0fe7215c2ec0fef0cf43ffae5fa21e-heart-balloons-flower-bouquet.png" alt="Heart Bouquet">
+      </div>
 
-    <div class="hint-text">Nên xoay ngang màn hình để trải nghiệm tốt hơn 💖</div>
-    <button class="btn-ready" onclick="enterExperience()">Sẵn sàng 💖</button>
+      <div class="hint-text">Hãy bật âm thanh để trải nghiệm tốt nhất 💖</div>
+      <button class="btn-ready" onclick="enterExperience()">Sẵn sàng 💖</button>
+    </div>
   </div>
 
   <!-- =========================================
@@ -517,27 +535,24 @@
         welcome.style.display = "none";
         main.classList.add("active");
         
-        // Tự động phát nhạc khi người dùng tương tác mở màn hình
+        // Tự động phát nhạc
         const audio = document.getElementById("audio");
         audio.play().then(() => {
           document.getElementById("playBtn").innerText = "❚❚";
-        }).catch(() => {
-          // Trình duyệt chặn tự động phát nếu có thì người dùng bấm thủ công
-        });
+        }).catch(() => {});
 
-        // Kích hoạt lại tính toán toạ độ cuộn trang
         setTimeout(updateLyricsHighlight, 200);
       }, 750);
     }
 
     // --- 2. DỮ LIỆU ẢNH & TỰ ĐỘNG CHẠY SLIDE ---
     const photoList = [
-		"images/anh-1.jpg",
-		"images/anh-2.jpg",
-		"images/anh-3.jpg",
-		"images/anh-4.jpg",
-		"images/anh-5.jpg",
-		"images/anh-6.jpg"
+      "images/anh-1.jpg",
+      "images/anh-2.jpg",
+      "images/anh-3.jpg",
+      "images/anh-4.jpg",
+      "images/anh-5.jpg",
+      "images/anh-6.jpg"
     ];
 
     let currentMainIndex = 0;
