@@ -22,7 +22,7 @@
     overflow-x: hidden;
 }
 
-    /* =========================================
+/* =========================================
        1. MÀN HÌNH CHÀO MỪNG (TRANG ĐẦU TIÊN)
     ========================================= */
     #welcomeScreen {
@@ -36,7 +36,7 @@
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      padding: 24px;
+      padding: 20px;
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
@@ -46,41 +46,38 @@
       pointer-events: none;
     }
 
-    /* Hiệu ứng chữ chạy từ ngoài vào tâm màn hình */
+    /* Container giới hạn khung hình theo tỷ lệ dọc của điện thoại */
+    .welcome-container {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
     .birthday-banner {
-      font-family: 'Caveat', cursive;
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #b81446;
       text-shadow: 0 4px 15px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(184, 20, 70, 0.3);
-      text-align: center;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      /* Animation chạy trượt từ ngoài bên phải vào */
-      transform: translateX(120vw);
-      animation: slideInBanner 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+      margin-bottom: 30px;
+      line-height: 1.4;
+      /* Animation hiện từ dưới lên phù hợp với màn hình dọc */
+      opacity: 0;
+      animation: fadeUpBanner 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
     }
 
-    @keyframes slideInBanner {
-      0% {
-        transform: translateX(120vw) scale(0.7);
-        opacity: 0;
-      }
-      70% {
-        transform: translateX(-4%) scale(1.04);
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-      }
+    @keyframes fadeUpBanner {
+      0% { transform: translateY(30px) scale(0.9); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
     }
 
-    /* Bó hoa trái tim */
     .bouquet-wrapper {
-      width: 250px;
-      max-width: 75vw;
-      margin-bottom: 28px;
+      width: 220px; /* Thu nhỏ một chút cho cân đối theo chiều dọc */
+      max-width: 65vw;
+      margin-bottom: 40px;
       filter: drop-shadow(0 12px 20px rgba(232, 74, 115, 0.35));
       animation: gentleFloat 3.5s ease-in-out infinite;
     }
@@ -96,39 +93,11 @@
       50% { transform: translateY(-10px) rotate(1.5deg); }
     }
 
-    /* Dòng chữ nhắc xoay ngang */
     .hint-text {
-      font-family: 'Caveat', cursive;
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       color: #9c1039;
-      margin-bottom: 24px;
-      text-align: center;
+      margin-bottom: 30px;
       text-shadow: 0 1px 4px rgba(255, 255, 255, 0.7);
-    }
-
-    /* Nút Sẵn sàng hồng neon */
-    .btn-ready {
-      background: linear-gradient(135deg, #ff3377 0%, #ff0055 100%);
-      color: white;
-      font-family: 'Caveat', cursive;
-      font-size: 1.65rem;
-      font-weight: 700;
-      border: none;
-      padding: 12px 42px;
-      border-radius: 40px;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(255, 0, 85, 0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: pulseBtn 2s infinite;
-    }
-
-    .btn-ready:active {
-      transform: scale(0.93);
-    }
-
-    @keyframes pulseBtn {
-      0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(255, 0, 85, 0.45); }
-      50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 0, 85, 0.65); }
     }
 
     /* =========================================
